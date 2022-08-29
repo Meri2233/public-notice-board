@@ -19,6 +19,37 @@
     align-items: center;
     padding:10px;
 }
+.postnotice{
+    height:300px;
+}
+.submit{
+    width:50px;
+    height:30px;
+    padding:5px;
+    cursor: pointer;
+}
+.button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:400px;
+}
+.titlelabel{
+    margin-right:20px;
+}
+.entry{
+    margin:20px;
+}
+.messagelabel{
+    margin-right:53px;
+}
+.message{
+    width:200px;
+    height:100px;
+}
+.title{
+    width:200px;
+}
 .addnew{
     border-radius: 10px;
     background-color: gainsboro;

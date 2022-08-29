@@ -1,27 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { collection, getDocs } from "firebase/firestore";
-import { db } from '../firebase.config';
 import { useDispatch, useSelector } from 'react-redux';
-import { addnotices } from '../slices/noticeSlice';
 import NoticeCard from './NoticeCard';
+import { addnotices } from '../slices/noticeSlice';
+import {collection, getDocs} from "firebase/firestore";
+import { db } from '../firebase.config';
 
 export default function Notices() {
-    let dispatch = useDispatch();
+    /*let dispatch = useDispatch();
 
-    async function getNotices() {
+    async function loadnotices() {
         const querySnapshot = await getDocs(collection(db, "notices"));
         querySnapshot.forEach((doc) => {
-            dispatch(addnotices(doc.data()));
+            let notice = doc.data()
+            notice.id = doc.id;
+            dispatch(addnotices(notice));
         });
     }
-    getNotices();
+    loadnotices();*/
 
     const notices = useSelector(state => state.notice.notices);
+
     return (
         <div className='notices'>
             <button className='addnew'><Link to="/postnotice">Add New</Link></button>
-            {notices.map((el, index) => { return <NoticeCard title={el.title} description={el.message} date={el.date} index={index} /> })}
+            {notices.map((el, index) => { return <NoticeCard title={el.title} description={el.message} date={el.date} index={index} id={el.id} /> })}
         </div>
     )
 }
